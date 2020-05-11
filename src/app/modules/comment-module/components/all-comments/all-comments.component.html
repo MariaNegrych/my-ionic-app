@@ -1,0 +1,13 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="arrow-back-outline" (click)="gotoPosts()"></ion-icon>
+      Comments
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-comment *ngFor="let com of comments" [comment]="com"></app-comment>
+</ion-content>

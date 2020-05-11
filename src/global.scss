@@ -24,3 +24,43 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+/* You can add global styles to this file, and also import other style files */
+/*body{*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*}*/
+.items{
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.all{
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+
+a{
+  text-decoration: none;
+  background: white;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 20px;
+}
+.btn{
+  cursor: pointer;
+  padding: 5px 7px;
+  background-color: #36abe0;
+  width: 150px;
+  border-radius: 5px;
+  border: 1px solid darkblue;
+}
+.button{
+  padding: 1px;
+  text-align: left;
+}

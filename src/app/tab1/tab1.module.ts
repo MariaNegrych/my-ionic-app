@@ -6,6 +6,12 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
+import {UserResolverService} from '../modules/users/services/user-resolve/user-resolve.service';
+import {UserService} from '../modules/users/services/user/user.service';
+import {HttpClientModule} from '@angular/common/http';
+import {StoriesComponent} from '../modules/stories/stories/stories.component';
+
+
 
 @NgModule({
   imports: [
@@ -13,8 +19,10 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule
+    Tab1PageRoutingModule,
+    HttpClientModule,
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page, StoriesComponent],
+  providers: [UserResolverService, UserService]
 })
 export class Tab1PageModule {}

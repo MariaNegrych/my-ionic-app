@@ -1,0 +1,25 @@
+<ion-item>
+    <ion-avatar slot="start">
+          <img src="https://georgia.travel/files/image/2017-10-30/1600X900/10028.jpg">
+    </ion-avatar>
+    <ion-label>
+        <h2>{{user.id}}.{{user.name}}</h2>
+        <div>
+            <ion-button (click)="showDetails(user)"  expand="block">
+                {{IsHidden ? 'Show details' : 'Hide details'}}
+            </ion-button>
+        </div>
+        <div>
+            <ion-button (click)="navigate(user)"  expand="block">
+                Show posts
+            </ion-button>
+        </div>
+    </ion-label>
+</ion-item>
+<div [hidden]="IsHidden" [ngClass]="'user-details'">
+    <blockquote>
+        {{xxx?.username}}, {{xxx?.email}};
+        {{xxx?.address.city}}, {{ xxx?.address.street}}, {{xxx?.address.suite}};
+        {{xxx?.address.geo.lat}}; {{ xxx?.address.geo.lng}}
+    </blockquote>
+</div>

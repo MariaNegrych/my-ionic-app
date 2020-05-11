@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div [ngClass]="'head'">
+      <div [ngClass]="'title'">
+        <ion-title>
+            <ion-icon name="arrow-back-outline" (click)="gotoHome()"></ion-icon>
+          Users
+        </ion-title>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<!--      <div>-->
+<!--        {{xxx?.id}}-->
+<!--        {{xxx?.name}}-->
+<!--        {{xxx?.email}}-->
+<!--        {{xxx?.address.city}}-->
+<!--        {{xxx?.address.geo.lat}}-->
+<!--        {{xxx?.address.geo.lng}}-->
+<!--      </div>-->
+      <app-user *ngFor="let su of users" [user]="su" (forwardUserData)="catchUserData($event)"></app-user>
+      <router-outlet></router-outlet>
+
+</ion-content>

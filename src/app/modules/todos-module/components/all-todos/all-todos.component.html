@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <div [ngClass]="'head'">
+
+            <div [ngClass]="'title'">
+                <ion-title>
+                    Todos
+                </ion-title>
+            </div>
+
+        </div>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div [ngClass]="'all'">
+
+    <div [ngClass]="'all-com'">
+      <app-todos *ngFor="let t of todos" [todo]="t"></app-todos>
+    </div>
+
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+</ion-content>

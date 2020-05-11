@@ -1,0 +1,12 @@
+.user{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.user-item{
+  width: 400px;
+  background: green;
+  text-align: center;
+  padding: 20px;
+}

@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Tab1Page } from './tab1.page';
+import {AllUsersComponent} from '../modules/users/components/all-users/all-users.component';
+import {UserResolverService} from '../modules/users/services/user-resolve/user-resolve.service';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: Tab1Page,
-  }
+  // {
+  //   path: '',
+  //   component: Tab1Page,
+  // }
 ];
 
 @NgModule({
