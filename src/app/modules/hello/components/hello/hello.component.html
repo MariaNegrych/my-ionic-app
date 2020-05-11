@@ -1,21 +1,19 @@
-<!--<ion-header [translucent]="true">-->
-<!--    <ion-toolbar>-->
-<!--        <div [ngClass]="'head'">-->
-<!--            <div [ngClass]="'title'">-->
-<!--                <ion-title>-->
-<!--                    Home-->
-<!--                </ion-title>-->
-<!--            </div>-->
-<!--        </div>-->
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <div [ngClass]="'head'">
+            <div [ngClass]="'title'">
+                <ion-title>
+                    Home
+                </ion-title>
+                <ion-title>Please, enter id of user</ion-title>
+            </div>
+        </div>
 
-<!--    </ion-toolbar>-->
-<!--</ion-header>-->
+    </ion-toolbar>
+</ion-header>
 
 <ion-content [fullscreen]="true">
     <form [formGroup]="f" [style]="'background: green'">
-        <ion-toolbar>
-            <ion-title>Please, enter id of user</ion-title>
-        </ion-toolbar>
         <ion-searchbar inputmode="numeric" formControlName="id"></ion-searchbar>
         <div [ngClass]="'form'">
             <ion-button (click)="onSearch(f)" expand="block">Show user detail</ion-button>
