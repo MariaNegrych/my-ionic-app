@@ -32,7 +32,7 @@ const routes: Routes = [
         loadChildren: () => import('../modules/album-module/album-module.module').then(m => m.AlbumModuleModule)
       },
       {
-        path: 'todos',
+        path: 'movies',
         loadChildren: () => import('../modules/todos-module/todos-module.module').then(m => m.TodosModuleModule)
       },
       {

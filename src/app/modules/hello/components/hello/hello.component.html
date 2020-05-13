@@ -5,7 +5,7 @@
                 <ion-title>
                     Home
                 </ion-title>
-                <ion-title>Please, enter id of user</ion-title>
+
             </div>
         </div>
 
@@ -14,6 +14,7 @@
 
 <ion-content [fullscreen]="true">
     <form [formGroup]="f" [style]="'background: green'">
+        <ion-label>Please, enter id of user</ion-label>
         <ion-searchbar inputmode="numeric" formControlName="id"></ion-searchbar>
         <div [ngClass]="'form'">
             <ion-button (click)="onSearch(f)" expand="block">Show user detail</ion-button>

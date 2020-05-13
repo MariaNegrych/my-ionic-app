@@ -4,7 +4,7 @@
 
             <div [ngClass]="'title'">
                 <ion-title>
-                    Todos
+                    Movies
                 </ion-title>
             </div>
 
@@ -16,8 +16,8 @@
 <ion-content [fullscreen]="true">
   <div [ngClass]="'all'">
 
-    <div [ngClass]="'all-com'">
-      <app-todos *ngFor="let t of todos" [todo]="t"></app-todos>
+    <div [ngClass]="'all-com'" >
+      <app-todos *ngFor="let todo of todos.results" [todo]="todo"></app-todos>
     </div>
 
     <div>

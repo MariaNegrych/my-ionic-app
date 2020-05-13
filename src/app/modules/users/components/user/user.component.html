@@ -5,7 +5,7 @@
     <ion-label>
         <h2>{{user.id}}.{{user.name}}</h2>
         <div>
-            <ion-button (click)="showDetails(user)"  expand="block">
+            <ion-button (click)="showDetails()"  expand="block">
                 {{IsHidden ? 'Show details' : 'Hide details'}}
             </ion-button>
         </div>
@@ -18,8 +18,8 @@
 </ion-item>
 <div [hidden]="IsHidden" [ngClass]="'user-details'">
     <blockquote>
-        {{xxx?.username}}, {{xxx?.email}};
-        {{xxx?.address.city}}, {{ xxx?.address.street}}, {{xxx?.address.suite}};
-        {{xxx?.address.geo.lat}}; {{ xxx?.address.geo.lng}}
+        {{user?.username}}, {{user?.email}};
+        {{user?.address.city}}, {{ user.address.street}}, {{user?.address.suite}};
+        {{user?.address.geo.lat}}; {{ user?.address.geo.lng}}
     </blockquote>
 </div>

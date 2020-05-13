@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   @Output()
   forwardUserData = new EventEmitter();
   post: PostModel;
-  IsHidden= true;
+  IsHidden = true;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) {
   }
 
@@ -38,12 +38,12 @@ export class UserComponent implements OnInit {
           relativeTo: this.activatedRoute
         });
   }
-  showDetails(user: UserModel) {
-      this.IsHidden= !this.IsHidden;
-      if (!this.IsHidden) {
-          this.userService.getUser(user.id).subscribe(value => this.xxx = value);
-      } else {
-          return null;
-      }
+  showDetails() {
+      this.IsHidden = !this.IsHidden;
+      // if (!this.IsHidden) {
+      //     this.userService.getUser(user.id).subscribe(value => this.xxx = value);
+      // } else {
+      //     return null;
+      // }
   }
 }

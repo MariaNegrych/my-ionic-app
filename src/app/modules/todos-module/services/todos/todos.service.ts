@@ -11,9 +11,14 @@ export class TodosService {
 
   constructor(private httpClient: HttpClient) {
   }
-  getTodos(): Observable<TodosModel[]>{
-    return this.httpClient.get<TodosModel[]>('https://jsonplaceholder.typicode.com/todos');
+  getTodos(): Observable<any>{
+    return this.httpClient.get<any>('https://api.themoviedb.org/3/discover/movie?page=1&api_key=d30507ed7e8e23e61ef0534c9793348d');
   }
+  getTodo(id): Observable<any>{
+    return this.httpClient.get<any>(`https://api.themoviedb.org/3/discover/movie/${id}?page=1&api_key=d30507ed7e8e23e61ef0534c9793348d`);
+  }
+
+
 
   // constructor(private http: HttpClient) {
   // }

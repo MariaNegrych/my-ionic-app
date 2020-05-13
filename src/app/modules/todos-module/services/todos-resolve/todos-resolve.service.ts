@@ -9,12 +9,12 @@ import {TodosModel} from '../../../../models/TodosModel';
   providedIn: 'root'
 })
 
-export class TodosResolverService implements Resolve<TodosModel[]>{
+export class TodosResolverService implements Resolve<any>{
 
   constructor(private todosService: TodosService) {
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<TodosModel[]> | Promise<TodosModel[]> | TodosModel[] {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
     return this.todosService.getTodos();
   }
 }

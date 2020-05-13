@@ -10,7 +10,8 @@ import {TodosModel} from '../../../../models/TodosModel';
 })
 export class AllTodosComponent implements OnInit {
 
-  todos: TodosModel[];
+  todos: any;
+  // allTodos: any;
 
 
   constructor(private activatedRoute: ActivatedRoute) {
