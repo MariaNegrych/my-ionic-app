@@ -1,13 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-        <ion-icon name="arrow-back-outline" (click)="gotoUsers()"></ion-icon>
-        Posts
+      News
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <app-post *ngFor="let p of posts" [post]="p" id="list"></app-post>
+  <app-album *ngFor="let a of albums.articles" [album]="a"></app-album>
+  <div>
     <router-outlet></router-outlet>
+  </div>
 </ion-content>

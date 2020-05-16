@@ -9,31 +9,27 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        // loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
         loadChildren: () => import('../modules/hello/hello.module').then(m => m.HelloModule)
       },
       {
         path: 'users',
-        // loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
         loadChildren: () => import('../modules/users/users.module').then(m => m.UsersModule)
       },
       {
         path: 'posts',
-        // loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
         loadChildren: () => import('../modules/post-module/post-module.module').then(m => m.PostModuleModule)
       },
       {
         path: 'comments',
-        // loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
         loadChildren: () => import('../modules/comment-module/comment-module.module').then(m => m.CommentModuleModule)
       },
       {
-        path: 'albums',
-        loadChildren: () => import('../modules/album-module/album-module.module').then(m => m.AlbumModuleModule)
+        path: 'news',
+        loadChildren: () => import('../modules/news-module/album-module.module').then(m => m.AlbumModuleModule)
       },
       {
         path: 'movies',
-        loadChildren: () => import('../modules/todos-module/todos-module.module').then(m => m.TodosModuleModule)
+        loadChildren: () => import('../modules/movies-module/todos-module.module').then(m => m.TodosModuleModule)
       },
       {
         path: '',

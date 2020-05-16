@@ -33,10 +33,6 @@ export class PostComponent implements OnInit {
         relativeTo: this.activatedRoute
       });
   }
-
-  // showCoomemtsOfPost(post: PostModel) {
-  //   this.commentService.getPostComments(post.id).subscribe(value => this.comments = value);
-  // }
 }
 
 

@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PostModel} from '../../../../models/PostModel';
 import {PostService} from '../../services/post/post.service';
 import {UserModel} from '../../../../models/UserModel';
+import {IonInfiniteScroll} from '@ionic/angular';
 
 
 @Component({
@@ -10,11 +11,10 @@ import {UserModel} from '../../../../models/UserModel';
   templateUrl: './all-posts.component.html',
   styleUrls: ['./all-posts.component.css']
 })
-
 export class AllPostsComponent implements OnInit {
 
   posts: PostModel[];
-  user: UserModel
+  user: UserModel;
 
   constructor(
     private postService: PostService,
