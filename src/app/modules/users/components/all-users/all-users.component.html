@@ -1,13 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <div [ngClass]="'head'">
-      <div [ngClass]="'title'">
         <ion-title>
             <ion-icon name="arrow-back-outline" (click)="gotoHome()"></ion-icon>
           Users
         </ion-title>
-      </div>
-    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -21,6 +17,11 @@
 <!--        {{xxx?.address.geo.lng}}-->
 <!--      </div>-->
       <app-user *ngFor="let su of users" [user]="su" (forwardUserData)="catchUserData($event)"></app-user>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content
+                loadingSpinner="bubbles"
+                loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
       <router-outlet></router-outlet>
-
 </ion-content>

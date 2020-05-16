@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {PostModel} from '../../../../models/PostModel';
 import {PostService} from '../../services/post/post.service';
 import {UserModel} from '../../../../models/UserModel';
-import {IonInfiniteScroll} from '@ionic/angular';
+import {IonInfiniteScroll, LoadingController} from '@ionic/angular';
 
 
 @Component({
@@ -15,12 +15,13 @@ export class AllPostsComponent implements OnInit {
 
   posts: PostModel[];
   user: UserModel;
+  url: string;
 
   constructor(
     private postService: PostService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
-  ) {
+    private router: Router,
+    public loadingController: LoadingController) {
 
 
     // this.activatedRoute
@@ -38,7 +39,6 @@ export class AllPostsComponent implements OnInit {
       this.posts = value.allPosts;
     });
 
-
     //
     // this.activatedRoute.queryParams.subscribe(queyParams =>
     //   this.postService
@@ -49,13 +49,34 @@ export class AllPostsComponent implements OnInit {
     // this.postService
     //   .getPostsOfUserById(this.router.getCurrentNavigation().extras.state.user.id)
     //   .subscribe(value => console.log(value));
-
   }
+  loadData(event) {
+    setTimeout(() => {
+      console.log('Done');
+      event.target.complete();
 
-  ngOnInit() {
+      // App logic to determine if all data is loaded
+      // and disable the infinite scroll
+      if (this.posts.length === 100) {
+        event.target.disabled = true;
+      }
+    }, 500);
   }
-
-  gotoUsers() {
+  async gotoUsers() {
     this.router.navigate(['/page/users']);
+    const loading = await this.loadingController.create({
+      message: 'Please wait...',
+      duration: 10
+    });
+    await loading.present();
+
+    const {role, data} = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
+
+  ngOnInit(): void {
+  }
+
+
 }
+

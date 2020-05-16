@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {UserModel} from '../../../../models/UserModel';
 import {PostModel} from '../../../../models/PostModel';
 import {UserService} from '../../services/user/user.service';
+import {LoadingController} from '@ionic/angular';
 
 
 @Component({
@@ -15,18 +16,23 @@ export class UserComponent implements OnInit {
   @Input()
   user: UserModel;
   xxx: any;
+  users: UserModel[];
 
   @Output()
   forwardUserData = new EventEmitter();
   post: PostModel;
   IsHidden = true;
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) {
+
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private userService: UserService,
+              public loadingController: LoadingController) {
   }
 
   ngOnInit(): void {
   }
 
-  navigate(user: UserModel) {
+  async navigate(user: UserModel) {
 
     this.forwardUserData.emit(user);
     // users/1/posts?userId=1
@@ -37,13 +43,16 @@ export class UserComponent implements OnInit {
           // users/1/posts
           relativeTo: this.activatedRoute
         });
+    const loading = await this.loadingController.create({
+          message: 'Please wait...',
+          duration: 200
+      });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
   showDetails() {
       this.IsHidden = !this.IsHidden;
-      // if (!this.IsHidden) {
-      //     this.userService.getUser(user.id).subscribe(value => this.xxx = value);
-      // } else {
-      //     return null;
-      // }
   }
 }

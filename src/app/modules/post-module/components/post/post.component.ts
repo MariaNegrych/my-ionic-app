@@ -5,6 +5,7 @@ import {PostService} from '../../services/post/post.service';
 import {CommentService} from '../../../comment-module/services/comment/comment.service';
 import {UserModel} from '../../../../models/UserModel';
 import {CommentModel} from '../../../../models/CommentModel';
+import {LoadingController} from '@ionic/angular';
 
 
 @Component({
@@ -20,18 +21,27 @@ export class PostComponent implements OnInit {
 
   constructor(
       private router: Router,
-      private activatedRoute: ActivatedRoute,) { }
+      private activatedRoute: ActivatedRoute,
+      public loadingController: LoadingController) { }
 
   ngOnInit() {
   }
 
-  navigate(post: PostModel) {
+  async navigate(post: PostModel) {
     this.router.navigate([post.id, 'comments'],
-      {
-        state: {post},
-        queryParams: {postId: post.id},
-        relativeTo: this.activatedRoute
-      });
+        {
+          state: {post},
+          queryParams: {postId: post.id},
+          relativeTo: this.activatedRoute
+        });
+    const loading = await this.loadingController.create({
+      message: 'Please wait...',
+      duration: 200
+    });
+    await loading.present();
+
+    const {role, data} = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 }
 

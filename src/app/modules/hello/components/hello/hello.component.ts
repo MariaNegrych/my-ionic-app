@@ -30,11 +30,11 @@ export class HelloComponent implements OnInit {
  async onSearch(f: FormGroup) {
     const {id} = this.f.value;
     this.router.navigate(['page/home/info', id]);
-    this.vibration.vibrate(1000);
+    this.vibration.vibrate(50);
 
     const loading = await this.loadingController.create({
      message: 'Please wait...',
-     duration: 2000
+     duration: 200
    });
     await loading.present();
 

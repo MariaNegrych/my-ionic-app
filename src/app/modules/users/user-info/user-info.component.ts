@@ -20,7 +20,7 @@ export class UserInfoComponent implements OnInit {
     this.activatedRoute.data.subscribe(value => {
       this.user = value.userInfo as UserModel;
 
-      if (!localStorage.getItem('user')){
+      if (!localStorage.getItem('user')) {
         this.allUser.push(this.user)
         localStorage.setItem('user', JSON.stringify(this.allUser));
       } else {

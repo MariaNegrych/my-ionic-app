@@ -17,7 +17,7 @@ export class CanActivateService implements CanActivate{
 
     if (id <= 10 && id > 0) {
       this.dataService.addState(id);
-    } else { alert('This page is not found!'); }
+    } else {alert('This page is not found!'); }
 
     return (id <= 10 && id > 0);
   }

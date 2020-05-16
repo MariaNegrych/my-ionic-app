@@ -4,6 +4,7 @@ import {CommentModel} from '../../../../models/CommentModel';
 import {CommentService} from '../../services/comment/comment.service';
 import {PostModel} from '../../../../models/PostModel';
 import {PostService} from '../../../post-module/services/post/post.service';
+import {LoadingController} from '@ionic/angular';
 
 @Component({
   selector: 'app-all-comments',
@@ -16,7 +17,10 @@ export class AllCommentsComponent implements OnInit {
   comments: CommentModel[];
 
 
-  constructor(private commentService: CommentService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private commentService: CommentService,
+              private activatedRoute: ActivatedRoute,
+              private router: Router,
+              public loadingController: LoadingController) {
     // get from resolver
       this.comments = this.activatedRoute.snapshot.data.allComments;
 
@@ -32,9 +36,28 @@ export class AllCommentsComponent implements OnInit {
 
   ngOnInit() {
   }
+  loadData(event) {
+    setTimeout(() => {
+      console.log('Done');
+      event.target.complete();
 
-  gotoPosts() {
+      // App logic to determine if all data is loaded
+      // and disable the infinite scroll
+      if (this.comments.length === 500) {
+        event.target.disabled = true;
+      }
+    }, 500);
+  }
+  async gotoPosts() {
     this.router.navigate(['/page/posts']);
+    const loading = await this.loadingController.create({
+      message: 'Please wait...',
+      duration: 10
+    });
+    await loading.present();
+
+    const{role, data} = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 
 }
