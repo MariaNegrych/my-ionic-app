@@ -5,6 +5,7 @@ import { AlbumModuleRoutingModule } from './album-module-routing.module';
 import {AllAlbumsComponent} from './components/all-albums/all-albums.component';
 import {AlbumComponent} from './components/album/album.component';
 import {IonicModule} from '@ionic/angular';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {IonicModule} from '@ionic/angular';
     imports: [
         CommonModule,
         AlbumModuleRoutingModule,
-        IonicModule
+        IonicModule,
+        ReactiveFormsModule
     ]
 })
 export class AlbumModuleModule { }

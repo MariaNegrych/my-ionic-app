@@ -1,0 +1,19 @@
+<ion-card>
+    <ion-card-title>
+        {{albums.name}}
+    </ion-card-title>
+    <ion-card-content>
+        <ion-card-subtitle>
+            Temperature is {{albums.main.temp}} C,
+        </ion-card-subtitle>
+        <ion-card-subtitle>
+            Fell like {{albums.main.feels_like}} C,
+        </ion-card-subtitle>
+        <ion-card-subtitle>
+            Wind: {{albums.wind.speed}} m/s,
+        </ion-card-subtitle>
+        <ion-card-content>
+            <img src="http://openweathermap.org/img/wn/{{albums.weather[0].icon}}.png">
+        </ion-card-content>
+    </ion-card-content>
+</ion-card>

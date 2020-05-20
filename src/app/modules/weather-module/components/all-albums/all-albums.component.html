@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Weather
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <form [formGroup]="f" [style]="'background: green'">
+        <ion-label>Please, enter city</ion-label>
+        <ion-searchbar inputmode="text" formControlName="city"></ion-searchbar>
+        <div [ngClass]="'form'">
+            <ion-button (click)="onSearch(f)" expand="block">Show weather</ion-button>
+        </div>
+    </form>
+    <router-outlet></router-outlet>
+</ion-content>
+
+
+
+

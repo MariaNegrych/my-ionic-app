@@ -9,8 +9,7 @@ export class AlbumService {
 
   constructor(private httpClient: HttpClient) {
   }
-  getAlbums(): Observable<any> {
-    // tslint:disable-next-line:max-line-length
-    return this.httpClient.get<any>(`http://newsapi.org/v2/everything?q=bitcoin&from=2020-04-15&sortBy=publishedAt&apiKey=abc16442c74e4481a5c8c9038c2a10e9`);
+  getAlbums(city: string): Observable<any> {
+     return this.httpClient.get<any>(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4c52fb282cd5ba4725eea10f4073f5a5&units=metric`);
 }
 }

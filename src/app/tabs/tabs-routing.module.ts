@@ -24,8 +24,8 @@ const routes: Routes = [
         loadChildren: () => import('../modules/comment-module/comment-module.module').then(m => m.CommentModuleModule)
       },
       {
-        path: 'news',
-        loadChildren: () => import('../modules/news-module/album-module.module').then(m => m.AlbumModuleModule)
+        path: 'weather',
+        loadChildren: () => import('../modules/weather-module/album-module.module').then(m => m.AlbumModuleModule)
       },
       {
         path: 'movies',

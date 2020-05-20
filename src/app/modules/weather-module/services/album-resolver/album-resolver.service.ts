@@ -13,6 +13,7 @@ export class AlbumResolverService implements Resolve<any>{
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
-    return this.albumService.getAlbums();
+    const {city} = route.params;
+    return this.albumService.getAlbums(city);
   }
 }
